@@ -12,5 +12,7 @@ services:
         value: "True"
       - key: USE_AWS_BEDROCK
         value: "False"
+      - key: GEMINI_MODEL
+        value: "gemini-1.5-flash"
       - key: GEMINI_API_KEY
         sync: false

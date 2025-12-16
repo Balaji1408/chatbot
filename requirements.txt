@@ -9,7 +9,7 @@ langchain-community
 langchain-text-splitters
 langchain-huggingface>=0.0.1
 langchain-aws>=0.1.0
-langchain-google-genai>=0.0.3
+langchain-google-genai>=1.0.3
 boto3>=1.34.0
 faiss-cpu>=1.7.4
 sentence-transformers>=2.2.2
