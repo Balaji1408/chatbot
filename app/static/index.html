@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise GenAI Assistant</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/favicon.png">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="brand">
+            <i class="fas fa-brain"></i>
+            <span>Cortex RAG</span>
+        </div>
+
+        <div class="upload-section">
+            <div class="section-title">Knowledge Base</div>
+            <div class="drop-zone" id="drop-zone">
+                <i class="fas fa-file-upload fa-lg" style="margin-bottom: 0.5rem; color: var(--accent-color);"></i>
+                <div class="drop-zone-text">Click or Drag files here</div>
+                <input type="file" id="file-input" multiple accept=".pdf,.docx,.txt">
+            </div>
+            <div class="file-list" id="file-list"></div>
+            <button class="btn btn-primary" id="upload-btn" disabled>
+                <i class="fas fa-cloud-upload-alt"></i>
+                Process Documents
+            </button>
+        </div>
+
+        <div style="flex:1"></div>
+
+        <div class="settings-section">
+            <button class="btn btn-danger" id="reset-btn" style="width: 100%">
+                <i class="fas fa-trash-alt"></i>
+                Clear Memory
+            </button>
+        </div>
+    </aside>
+
+    <!-- Sidebar Toggle Button -->
+    <button id="sidebar-toggle" class="sidebar-toggle" title="Toggle Sidebar">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+
+    <!-- Chat Area -->
+    <main class="chat-container">
+        <div id="toast-container" class="toast-container"></div>
+
+        <div class="chat-history" id="chat-history">
+            <!-- Messages will appear here -->
+        </div>
+
+        <div class="chat-input-area">
+            <div class="custom-select-wrapper" id="context-select-wrapper">
+                <div class="custom-select-trigger" id="context-trigger">
+                    <div class="trigger-content">
+                        <i class="fas fa-database"></i>
+                        <span id="context-current-text"
+                            style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width: 150px;">All
+                            Documents</span>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="custom-options" id="context-options">
+                    <div class="custom-option selected" data-value="">
+                        <i class="fas fa-layer-group"></i> All Documents
+                    </div>
+                </div>
+            </div>
+            <div class="input-wrapper">
+                <input type="text" id="query-input" placeholder="Ask a question..." autocomplete="off">
+                <button class="send-btn" id="send-btn">
+                    <i class="fas fa-paper-plane fa-lg"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Custom Modal -->
+    <div id="confirmation-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-icon-wrapper">
+                    <i class="fas fa-trash-alt"></i>
+                </div>
+                <h3>Clear Memory?</h3>
+            </div>
+            <p class="modal-body">
+                Are you sure you want to delete all documents? <br>
+                <span style="font-size: 0.9em; opacity: 0.7;">This action cannot be undone.</span>
+            </p>
+            <div class="modal-actions">
+                <button id="modal-cancel" class="btn btn-secondary">Cancel</button>
+                <button id="modal-confirm" class="btn btn-danger">Yes, Clear It</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
