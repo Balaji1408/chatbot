@@ -22,7 +22,7 @@ class Settings(BaseSettings):
     LLM_MODEL: str = "llama3.2:1b"
     
     # AWS Bedrock Settings
-    USE_AWS_BEDROCK: bool = True
+    USE_AWS_BEDROCK: bool = False
     AWS_REGION: str = "us-east-1"
     BEDROCK_MODEL_ID: str = "meta.llama3-70b-instruct-v1:0" 
     BEDROCK_EMBEDDING_MODEL_ID: str = "amazon.titan-embed-text-v1"
@@ -32,10 +32,10 @@ class Settings(BaseSettings):
     # Google Gemini Settings (Free Tier Available)
     USE_GEMINI: bool = False
     GEMINI_API_KEY: str = ""
-    GEMINI_MODEL: str = "gemini-pro"
+    GEMINI_MODEL: str = "gemini-1.5-flash"
     
     # Groq Settings (Free Tier Available - Llama models)
-    USE_GROQ: bool = False
+    USE_GROQ: bool = True
     GROQ_API_KEY: str = ""
     GROQ_MODEL: str = "llama-3.1-8b-instant"
 

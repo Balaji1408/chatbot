@@ -22,7 +22,9 @@ class VectorStoreService:
                 client=boto3_session.client("bedrock-runtime"),
                 model_id=settings.BEDROCK_EMBEDDING_MODEL_ID
             )
-        elif settings.USE_GEMINI:
+        elif settings.USE_GEMINI or (settings.USE_GROQ and settings.GEMINI_API_KEY):
+            # Use Google Embeddings for Gemini OR Groq (if key available) to save memory
+            # This avoids loading sentence-transformers locally
             from langchain_google_genai import GoogleGenerativeAIEmbeddings
             
             self.embeddings = GoogleGenerativeAIEmbeddings(

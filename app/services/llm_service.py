@@ -28,7 +28,7 @@ class LLMService:
             
             # Fallback to hardcoded 'gemini-pro' if env var is stuck/broken
             self.llm = ChatGoogleGenerativeAI(
-                model="gemini-pro",
+                model=settings.GEMINI_MODEL,
                 google_api_key=settings.GEMINI_API_KEY,
                 temperature=0.3
             )
