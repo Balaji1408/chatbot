@@ -1,5 +1,5 @@
 from typing import List, AsyncIterable
-from langchain_community.chat_models import ChatOllama
+
 from langchain_core.messages import HumanMessage, SystemMessage, AIMessage
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
@@ -41,6 +41,7 @@ class LLMService:
                 temperature=0.3
             )
         else:
+            from langchain_community.chat_models import ChatOllama
             self.llm = ChatOllama(
                 base_url=settings.OLLAMA_BASE_URL,
                 model=settings.LLM_MODEL,

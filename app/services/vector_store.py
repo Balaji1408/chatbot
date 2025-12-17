@@ -1,6 +1,6 @@
 import os
 from typing import List, Tuple
-from langchain_huggingface import HuggingFaceEmbeddings
+
 from langchain_community.vectorstores import FAISS
 from langchain_core.documents import Document
 from app.core.config import settings
@@ -32,6 +32,8 @@ class VectorStoreService:
         else:
             # Fallback to Local HuggingFace
             print("WARNING: Falling back to local HuggingFace Embeddings. This may cause OOM on low-memory environments (like Render Free Tier).")
+            # Lazy import to avoid heavy memory usage when not using local embeddings
+            from langchain_huggingface import HuggingFaceEmbeddings
             self.embeddings = HuggingFaceEmbeddings(model_name=settings.EMBEDDING_MODEL)
             
         self.vector_store = None
