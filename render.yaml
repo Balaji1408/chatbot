@@ -8,11 +8,13 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: 3.10.0
-      - key: USE_GEMINI
+      - key: USE_GROQ
         value: "True"
+      - key: USE_GEMINI
+        value: "False"
       - key: USE_AWS_BEDROCK
         value: "False"
-      - key: GEMINI_MODEL
-        value: "gemini-pro"
-      - key: GEMINI_API_KEY
+      - key: GROQ_MODEL
+        value: "llama-3.1-8b-instant"
+      - key: GROQ_API_KEY
         sync: false

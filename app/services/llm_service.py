@@ -32,6 +32,14 @@ class LLMService:
                 google_api_key=settings.GEMINI_API_KEY,
                 temperature=0.3
             )
+        elif settings.USE_GROQ:
+            from langchain_groq import ChatGroq
+            
+            self.llm = ChatGroq(
+                groq_api_key=settings.GROQ_API_KEY,
+                model_name=settings.GROQ_MODEL,
+                temperature=0.3
+            )
         else:
             self.llm = ChatOllama(
                 base_url=settings.OLLAMA_BASE_URL,

@@ -52,3 +52,9 @@ A production-ready, local-first Retrieval-Augmented Generation (RAG) system desi
 - **POST /api/upload**: Upload files to ingest.
 - **POST /api/chat**: Ask questions against the ingested knowledge base.
 - **DELETE /api/reset**: Clear the knowledge base.
+
+## Deployment
+
+- [Free Cloud Deployment Guide (Llama 3 via Groq)](FREE_DEPLOYMENT_GUIDE_GROQ.md)
+- [Free Deployment Guide (Gemini)](FREE_DEPLOYMENT_GUIDE_GEMINI.md)
+
