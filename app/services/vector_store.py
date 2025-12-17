@@ -31,6 +31,7 @@ class VectorStoreService:
             )
         else:
             # Fallback to Local HuggingFace
+            print("WARNING: Falling back to local HuggingFace Embeddings. This may cause OOM on low-memory environments (like Render Free Tier).")
             self.embeddings = HuggingFaceEmbeddings(model_name=settings.EMBEDDING_MODEL)
             
         self.vector_store = None
