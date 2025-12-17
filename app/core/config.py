@@ -32,7 +32,7 @@ class Settings(BaseSettings):
     # Google Gemini Settings (Free Tier Available)
     USE_GEMINI: bool = False
     GEMINI_API_KEY: str = ""
-    GEMINI_MODEL: str = "gemini-1.5-flash"
+    GEMINI_MODEL: str = "gemini-pro"
     
     model_config = SettingsConfigDict(
         env_file=".env",
